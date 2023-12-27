@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+
+<div class="ms-md-5 mt-5">
+    <div class="card col-md-8 m-auto">
+        <div class="card-header">
+            <h4 class="card-title">Recent Transactions</h4>
+        </div>
+        <div class="card-body scrollable-table">
+            <table class="table">
+                <thead *ngIf="this.res.data!=''">
+                    <tr>
+                        <th>Date</th>
+                        <th>Account Name</th>
+                        <th>Account Number</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                        <th>Notes</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr *ngFor="let item of this.res.data">
+                        <td>{{item.timestamp}}</td>
+                        <td>{{item.account_name}}</td>
+                        <td>{{item.account_number}}</td>
+                        <td>{{item.amount}}</td>
+                        <td  [ngClass]="{'text-green': item.transaction_type === 'Credit', 'text-red': item.transaction_type !== 'Credit'}">
+                            {{item.transaction_type}}
+                          </td>
+                        <td>{{item.notes}}</td>
+                          <td ngClass="bg-green">success</td>
+                          
+                                                      </tr>
+                </tbody>
+                <tbody *ngIf="this.res.data==''">
+                   <div class="alert alert-info text-center mt-4">No History</div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

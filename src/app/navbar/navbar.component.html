@@ -1,0 +1,89 @@
+<!-- Navbar -->
+<nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top justify-content-between">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Bootstrap Toggle Button -->
+    
+    <!-- Brand -->
+    <a class="navbar-brand" routerLink="#">
+      <i class="fas fa-university"> EasyShare</i>
+    </a>
+     <div class="">Hi, {{this.res.firstname}}</div>
+    <div class="d-lg-none">
+      <span class=" navbar-toggler-icon" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+      </span>
+    </div>
+
+
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+
+<!-- Sidebar -->
+<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white shadow">
+  <div class="position-sticky">
+    <div class="list-group list-group-flush mx-3 mt-4">
+      <a routerLink="/dashboard" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+        <i class="fas fa-home fa-fw me-3"></i><span>Home</span>
+      </a>
+      <a routerLink="/profile" class="list-group-item list-group-item-action py-2 ripple">
+        <i class="fas fa-users fa-fw me-3"></i><span>Profile</span>
+      </a>
+      <a routerLink="/transfer" class="list-group-item list-group-item-action py-2 ripple">
+        <i class="fas fa-exchange fa-fw me-3"></i><span>Transfer</span>
+      </a>
+      <a routerLink="/changepin" class="list-group-item list-group-item-action py-2 ripple">
+        <i class="fas fa-lock fa-fw me-3"></i><span>Change Pin</span>
+      </a>
+      <a routerLink="/history" class="list-group-item list-group-item-action py-2 ripple">
+        <i class="fas  fa-clock-rotate-left fa-fw me-3"></i><span>History</span>
+      </a>
+      <!-- Dropdown for Settings -->
+      <li class="list-group-item list-group-item-action py-2 ripple dropdown">
+        <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-cogs fa-fw me-3"></i><span>Settings</span>
+        </a>
+        <ul class="dropdown-menu">
+          <li (click)="logout()"><a class="dropdown-item" ><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+      </li>
+    </div>
+  </div>
+  
+</nav>
+<!-- Sidebar -->
+
+<div class="offcanvas offcanvas-start w-75" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">MENU</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body ">
+    <div class="list-group list-group-flush mx-3 mt-4">
+      <a routerLink="/dashboard" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+        <i class="fas fa-home fa-fw me-3"></i><span>Home</span>
+      </a>
+      <a routerLink="/profile" class="list-group-item list-group-item-action py-2 ripple">
+        <i class="fas fa-users fa-fw me-3"></i><span>Profile</span>
+      </a>
+      <a routerLink="/transfer" class="list-group-item list-group-item-action py-2 ripple">
+        <i class="fas fa-exchange fa-fw me-3"></i><span>Transfer</span>
+      </a>
+      <a routerLink="/changepin" class="list-group-item list-group-item-action py-2 ripple">
+        <i class="fas fa-lock fa-fw me-3"></i><span>Change Pin</span>
+      </a>
+      <a routerLink="/history" class="list-group-item list-group-item-action py-2 ripple">
+        <i class="fas  fa-clock-rotate-left fa-fw me-3"></i><span>History</span>
+      </a>
+      <!-- Dropdown for Settings -->
+      <li class="list-group-item list-group-item-action py-2 ripple dropdown">
+        <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-cogs fa-fw me-3"></i><span>Settings</span>
+        </a>
+        <ul class="dropdown-menu">
+          <li (click)="logout()"><a class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+      </li>
+    </div>  </div>
+</div>
