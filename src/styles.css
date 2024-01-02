@@ -7,7 +7,9 @@
   font-family: 'DM Sans', sans-serif;
 }
 
-
+body{
+    background: #104da8 !important;
+}
 .main_div{
     background: #fff;
     padding: 30px;

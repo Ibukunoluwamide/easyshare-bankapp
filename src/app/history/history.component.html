@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <div class="ms-md-5 mt-5">
-    <div class="card col-md-8 m-auto">
+    <div class="card col-md-8 m-auto"  style="margin-top: 0.9in !important;">
         <div class="card-header">
             <h4 class="card-title">Recent Transactions</h4>
         </div>
@@ -10,6 +10,7 @@
                 <thead *ngIf="this.res.data!=''">
                     <tr>
                         <th>Date</th>
+                        <th>Bank</th>
                         <th>Account Name</th>
                         <th>Account Number</th>
                         <th>Amount</th>
@@ -18,9 +19,10 @@
                         <th>Status</th>
                     </tr>
                 </thead>
-                <tbody >
+                <tbody>
                     <tr *ngFor="let item of this.res.data">
                         <td>{{item.timestamp}}</td>
+                        <td>{{item.bank_name}}</td>
                         <td>{{item.account_name}}</td>
                         <td>{{item.account_number}}</td>
                         <td>{{item.amount}}</td>

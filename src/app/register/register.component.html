@@ -1,5 +1,6 @@
-<div class="main_div m-auto col-md-5">
-  <div class="title">Create An Account</div>
+<div class="main_div m-auto col-md-5 body">
+  <div class="title">Register</div>
+  <p class="text-center">Welcome to EasyShare Platform</p>
   <form [formGroup]="ngForm" (ngSubmit)="onSubmit()">
     <div class={{style}}>{{msg}}</div>
       <div class="d-md-flex gap-2">
@@ -34,7 +35,7 @@
   
     <div class="input_box" [ngClass]="{'has-error': ngForm.get('email')?.invalid && ngForm.get('email')?.dirty,
                                         'has-success': ngForm.get('email')?.valid && ngForm.get('email')?.dirty}">
-      <input type="email" placeholder="Email" formControlName="email" required>
+      <input type="email" placeholder="Email address" formControlName="email" required>
       <div class="icon"><i class="fas fa-envelope"></i></div>
     </div>
     <div class="text-danger" *ngIf="ngForm.get('email')?.invalid && ngForm.get('email')?.dirty">
@@ -55,17 +56,15 @@
 
     <div class="input_box" [ngClass]="{'has-error': ngForm.get('national_id')?.invalid && ngForm.get('national_id')?.dirty,
                                         'has-success': ngForm.get('national_id')?.valid && ngForm.get('national_id')?.dirty}">
-      <input type="text" placeholder="National ID" formControlName="national_id" required>
+      <input type="text" placeholder="National ID (optional)" formControlName="national_id">
       <div class="icon"><i class="fas fa-id-card"></i></div>
     </div>
-    <div class="text-danger" *ngIf="ngForm.get('national_id')?.invalid && ngForm.get('national_id')?.dirty">
-      <span *ngIf="ngForm.get('national_id')?.hasError('required')">National ID is required</span>
-    </div>
+   
 
     <div class="input_box" [ngClass]="{'has-error': ngForm.get('country')?.invalid && ngForm.get('country')?.dirty,
                                         'has-success': ngForm.get('country')?.valid && ngForm.get('country')?.dirty}">
       <select name="" id="" formControlName="country" required>
-        <option value="syc" disabled selected>Country</option>
+        <option value="" disabled selected>Select Country</option>
         <option value="Afghanistan">Afghanistan</option>
         <option value="Åland Islands">Åland Islands</option>
         <option value="Albania">Albania</option>
@@ -329,7 +328,7 @@
     <div class="input_box" [ngClass]="{'has-error': ngForm.get('gender')?.invalid && ngForm.get('gender')?.dirty,
                                         'has-success': ngForm.get('gender')?.valid && ngForm.get('gender')?.dirty}">
       <select formControlName="gender" required>
-        <option value="" disabled selected>Gender</option>
+        <option value="" disabled selected>Select Gender</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
         <option value="other">Other</option>
@@ -347,6 +346,8 @@
     </div>
     <div class="text-danger" *ngIf="ngForm.get('password')?.invalid && ngForm.get('password')?.dirty">
       <span *ngIf="ngForm.get('password')?.hasError('required')">Password is required</span>
+      <span *ngIf="ngForm.get('password')?.hasError('minlength')">Password must be at least 6 characters</span>
+
     </div>
   
     <div class="input_box" [ngClass]="{'has-error': ngForm.get('confirm_password')?.invalid && ngForm.get('confirm_password')?.dirty,
@@ -356,6 +357,8 @@
     </div>
     <div class="text-danger" *ngIf="ngForm.get('confirm_password')?.invalid && ngForm.get('confirm_password')?.dirty">
       <span *ngIf="ngForm.get('confirm_password')?.hasError('required')">Confirm Password is required</span>
+      <span *ngIf="ngForm.get('confirm_password')?.hasError('minlength')">Password must be at least 6 characters</span>
+
     </div>
     
     <div class="option_div">

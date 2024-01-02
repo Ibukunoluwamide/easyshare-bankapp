@@ -15,12 +15,12 @@ export class HistoryComponent {
     this.service.userData.subscribe(result=>{
       this.accNo = result.accountnumber
       // console.log(this.accNo);
-      
+      this.http.post(`${this.service.backendURL}/history.php`,this.accNo).subscribe(response=>{
+         this.res=response
+         console.log(this.res);
+         
+      })
     })
       
-    this.http.post('http://localhost/easyshare/history.php',this.accNo).subscribe(response=>{
-       this.res=response
-       
-    })
   }
 }

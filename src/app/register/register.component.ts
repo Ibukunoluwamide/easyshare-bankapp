@@ -17,17 +17,17 @@ export class RegisterComponent {
   res:any = {}
   constructor(public fb: FormBuilder, public service: UsersService, public route: Router) {}
   public ngForm = this.fb.group({
-    first_name: ['John', [Validators.required, Validators.minLength(3)]],
-    middle_name: ['Smith', [Validators.minLength(3)]], 
-    last_name: ['Jinad', [Validators.required, Validators.minLength(3)]],
-    email: ['john@gmail.com', [Validators.required, Validators.email]],
-    phone_number: ['07063733666', [Validators.required]],
-    national_id: ['003883883', [Validators.required]], 
-    country: ['Nigeria', [Validators.required]], 
+    first_name: ['', [Validators.required, Validators.minLength(3)]],
+    middle_name: ['', [Validators.minLength(3)]], 
+    last_name: ['', [Validators.required, Validators.minLength(3)]],
+    email: ['', [Validators.required, Validators.email]],
+    phone_number: ['', [Validators.required]],
+    national_id: [''], 
+    country: ['', [Validators.required]], 
     date_of_birth: ['', [Validators.required]], 
     gender: ['', [Validators.required]], 
-    password: ['12345', [Validators.required]],
-    confirm_password: ['12345', [Validators.required]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    confirm_password: ['', [Validators.required, Validators.minLength(6)]],
     agreement: [true, [Validators.requiredTrue]]
   });
 

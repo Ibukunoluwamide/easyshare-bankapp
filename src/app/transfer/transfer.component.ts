@@ -11,12 +11,21 @@ import { UsersService } from '../services/users.service';
 })
 export class TransferComponent {
   public res: any = {}
+  public bankList:any=[]
   constructor(public fb: FormBuilder, public service: UsersService, public http: HttpClient) { }
   public accountNumber: any = JSON.parse(localStorage['easyshareCurrentUserAccNo'])
+  ngOnInit(){
+ 
+    this.http.get<any>(`${this.service.backendURL}/banklist.php`).subscribe(result=>{
+      this.bankList=result.data
+      // console.log(this.bankList);
+      
+    })
+  }
 
   public form = this.fb.group({
-    accountNumber: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
-    accountName: [{value: 'Easyshare', disabled: true}, Validators.required],
+    accountNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+    bank: ['EasyShare', Validators.required],
     amount: ['', Validators.required],
     pin: ['', Validators.required],
     notes: [''],
@@ -42,7 +51,9 @@ export class TransferComponent {
       });
     }
    else{
-    this.http.post('http://localhost/easyshare/accountChecker.php', this.form.value).subscribe(response => {
+    // console.log(this.form.value);
+    
+    this.http.post(`${this.service.backendURL}/accountChecker.php`, this.form.value).subscribe(response => {
       console.log(response);
       this.res = response
       if (this.res.status == false) {
@@ -55,7 +66,7 @@ export class TransferComponent {
       } else {
         Swal.fire({
           title: "Are you sure?",
-          text: `Send ${formattedAmount} to ${this.res.message[0]} ${this.res.message[1]} ${this.res.message[2]}`,
+          text: `Send ${formattedAmount} to ${this.res.data.account_name}`,
           icon: "warning",
           showCancelButton: true,
           confirmButtonColor: "#3085d6",
@@ -63,8 +74,8 @@ export class TransferComponent {
           confirmButtonText: "Confirm"
         }).then((result) => {
           if (result.isConfirmed) {
-            this.http.post('http://localhost/easyshare/transfer.php', this.form.value).subscribe(result => {
-              console.log(result);
+            this.http.post(`${this.service.backendURL}/transfer.php`, this.form.value).subscribe(result => {
+              // console.log(result);
               this.res = result
               if (this.res.status == false) {
                 Swal.fire({

@@ -7,7 +7,10 @@
         <img src="../../assets/Group 772.svg" alt="Bank Logo 2" class="logo">
     </div>
     <div class="d-flex justify-content-between">
-      <div class="card-number">{{this.res.data?.accountnumber}}</div>
+      <div class="card-number">
+        {{ res.data?.accountnumber }}
+        <i (click)="copyAccountNumber()" class="fa-solid fa-copy"></i>
+      </div>      
        <div class="card-holder">Card Holder <br> <strong style="font-size: 18px;
         font-weight: 600;">{{this.res.data?.firstname}} {{this.res.data?.lastname}}</strong></div>
     </div>
@@ -24,15 +27,14 @@
       <div class="text">
          <span>Click to upload profile picture</span>
          </div>
-         <input type="file" id="file" (change)="uploadImage($event)">
+         <input type="file" id="file" (change)="uploadImage($event)" accept="image/png, image/jpeg">
       </label>
   </div>
     
   
 </main>
-<div *ngIf="imagePath">
-  <img [src]="imagePath" alt="Profile Picture">
-</div>
+
+
 
 <section class="ms-md-5">
     <app-history></app-history>

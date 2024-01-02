@@ -26,7 +26,7 @@ export class ProfileComponent {
         lastname: [this.res.lastname, Validators.required],
         email: [{value: this.res.email, disabled: true}],
         phoneNumber: [{value: this.res.phone_number, disabled: true}, Validators.required], 
-        nationalId: [{value: this.res.national_id, disabled: true},  Validators.required], 
+        nationalId: [this.res.national_id ,  Validators.required], 
         country: [{value: this.res.country, disabled: true}, Validators.required], 
         dateOfBirth: [{value: this.res.date_of_birth, disabled: true}, Validators.required], 
         gender: [this.res.gender, Validators.required], 
@@ -42,21 +42,20 @@ export class ProfileComponent {
 
   onUpdateProfileSubmit() {
     if (this.updateProfileForm.valid) {
-      console.log(this.updateProfileForm.value);
+      // console.log(this.updateProfileForm.value);
       
-      this.http.post('http://localhost/easyshare/updateprofile.php',this.updateProfileForm.value).subscribe(response => {
-        console.log(response);
-        this.res = response
+      this.http.post<any>(`${this.service.backendURL}/updateprofile.php`,this.updateProfileForm.value).subscribe(response => {
+        //  console.log(response);
+         
         this.service.userData.next(this.updateProfileForm.value)
         Swal.fire({
           confirmButtonColor: "#3085d6",
-          text: this.res.message,
+          text: response.message,
           icon: "success"
         });
         this.route.navigate(['/dashboard'])
       })
     } else {
-      // Display error message
       this.msg = 'Please fill in all required fields with valid values';
       this.style = 'error';
     }

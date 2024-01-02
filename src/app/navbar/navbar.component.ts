@@ -15,6 +15,7 @@ ngOnInit(){
     // console.log(result);
     this.res = result
   })
+  
 }
 logout(){  
   localStorage.removeItem('easyshareUser_id')

@@ -10,9 +10,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HistoryComponent } from './history/history.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ChangepinComponent } from './changepin/changepin.component';
+import { CloudinaryModule } from '@cloudinary/ng';
+import { HomepageComponent } from './homepage/homepage.component';
+import { ErrorpageComponent } from './errorpage/errorpage.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +27,17 @@ import { ChangepinComponent } from './changepin/changepin.component';
     TransferComponent,
     ProfileComponent,
     HistoryComponent,
-    ChangepinComponent
+    ChangepinComponent,
+    HomepageComponent,
+    ErrorpageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+   CloudinaryModule,
+   FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,13 +6,13 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class UsersService {
-
+  public backendURL:any ='http://easyshare-server.infinityfreeapp.com/'
   public userData = new BehaviorSubject(JSON.parse(localStorage['easyshareCurrentUser']||null))
   constructor(public http: HttpClient) { }
   registerUser(user:any){
-    return this.http.post('http://localhost/easyshare/register.php', user)
+    return this.http.post(`${this.backendURL}/register.php`, user)
   }
   loginUser(user:any){
-    return this.http.post('http://localhost/easyshare/login.php', user)
+    return this.http.post(`${this.backendURL}/login.php`, user)
   }
 }
