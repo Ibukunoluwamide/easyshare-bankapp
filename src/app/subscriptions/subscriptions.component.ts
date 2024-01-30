@@ -39,7 +39,7 @@ selectedPlan:any = ''
 ngOnInit() {
 
   this.http.get<any>(`${this.service.backendURL}/databundle.php`).subscribe(data=>{
-    console.log(data.message.details);
+    console.log(data);
     this.dataApi= data.message.details
   })
 }
