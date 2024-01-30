@@ -46,7 +46,7 @@ export class DashboardComponent {
  uploadImage(e:any){
   console.log(e.target.files[0]);
   const formdata = new FormData()
-  const accNo:any = parseFloat(JSON.parse(localStorage['easyshareCurrentUserAccNo']))  
+  const accNo:any = parseFloat(JSON.parse(localStorage['easyshareUser_id']))  
   formdata.append('image', e.target.files[0])
   formdata.append('accountnumber', accNo)
   this.http.post<any>(`${this.service.backendURL}/uploadImage.php`, formdata).subscribe(response=>{
