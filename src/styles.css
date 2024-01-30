@@ -8,7 +8,19 @@
 }
 
 body{
-    background: #104da8 !important;
+  background:-webkit-repeating-radial-gradient(ellipse farthest-corner at bottom left, #734dff 0%, #c7adad 10%, #6d6db6 50%);
+background:-o-repeating-radial-gradient(ellipse farthest-corner at bottom left, #734dff 0%, #c7adad 10%, #6d6db6 50%);
+background:-moz-repeating-radial-gradient(ellipse farthest-corner at bottom left, #734dff 0%, #c7adad 10%, #6d6db6 50%);
+background:repeating-radial-gradient(ellipse farthest-corner at bottom left, #734dff 0%, #c7adad 10%, #6d6db6 50%);
+
+  /* background: radial-gradient(ellipse at 50% 50%, #403d51, #6f718b 100%) !important; */
+  min-height: 60vw !important;
+}
+@media screen and (max-width: 600px){
+  body{
+      min-height: 100vh;
+
+  }
 }
 .main_div{
     background: #fff;
@@ -173,3 +185,37 @@ body{
   
   /* Add similar styles for other form controls */
   
+.smallDiv{
+  height: 130px;
+  color: #fff;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.smallDiv i {
+  font-size: xx-large;
+}
+.smallDiv p {
+  font-size: medium;
+  padding-top: 10px;
+}
+.smallDiv:nth-child(1) {
+  background-color: #3498db; /* Blue */
+}
+
+.smallDiv:nth-child(2) {
+  background-color: #e74c3c; /* Red */
+}
+
+.smallDiv:nth-child(3) {
+  background-color: #2ecc71; /* Green */
+}
+
+.smallDiv:nth-child(4) {
+  background-color: #f39c12; /* Yellow */
+}
+
+

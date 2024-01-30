@@ -29,11 +29,9 @@ export class DashboardComponent {
     this.user_id = Number(JSON.parse(localStorage['easyshareUser_id']!))
     this.http.post(`${this.service.backendURL}/dashboard.php`, this.user_id).subscribe(response=>{
       this.res = response
-      console.log(this.res);      
+      // console.log(this.res);      
       this.service.userData.next(this.res.data)
-      localStorage.setItem('easyshareCurrentUser', JSON.stringify(this.res.data))
-      localStorage.setItem('easyshareCurrentUserAccNo', JSON.stringify(this.res?.data.accountnumber))
-     
+      localStorage.setItem('easyshareCurrentUser', JSON.stringify(this.res.data))     
     },(error)=>{
       console.log(error);
       
@@ -52,7 +50,7 @@ export class DashboardComponent {
   formdata.append('image', e.target.files[0])
   formdata.append('accountnumber', accNo)
   this.http.post<any>(`${this.service.backendURL}/uploadImage.php`, formdata).subscribe(response=>{
-     console.log(response);
+    //  console.log(response);
      this.res.data.profilepic = response.imagePath     
       if (response.status==true) {
           Swal.fire({

@@ -26,7 +26,7 @@ export class ProfileComponent {
         lastname: [this.res.lastname, Validators.required],
         email: [{value: this.res.email, disabled: true}],
         phoneNumber: [{value: this.res.phone_number, disabled: true}, Validators.required], 
-        nationalId: [this.res.national_id ,  Validators.required], 
+        nationalId: [this.res.national_id], 
         country: [{value: this.res.country, disabled: true}, Validators.required], 
         dateOfBirth: [{value: this.res.date_of_birth, disabled: true}, Validators.required], 
         gender: [this.res.gender, Validators.required], 

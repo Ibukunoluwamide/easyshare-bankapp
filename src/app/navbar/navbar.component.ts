@@ -20,7 +20,6 @@ ngOnInit(){
 logout(){  
   localStorage.removeItem('easyshareUser_id')
   localStorage.removeItem('easyshareCurrentUser')
-  localStorage.removeItem('easyshareCurrentUserAccNo')
   this.route.navigate(['/login'])
 }
 }

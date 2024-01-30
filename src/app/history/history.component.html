@@ -6,38 +6,36 @@
             <h4 class="card-title">Recent Transactions</h4>
         </div>
         <div class="card-body scrollable-table">
-            <table class="table">
-                <thead *ngIf="this.res.data!=''">
-                    <tr>
-                        <th>Date</th>
-                        <th>Bank</th>
-                        <th>Account Name</th>
-                        <th>Account Number</th>
-                        <th>Amount</th>
-                        <th>Type</th>
-                        <th>Notes</th>
-                        <th>Status</th>
-                    </tr>
+            <table class="table table-bordered">
+                <thead *ngIf="this.res.status==true">
+                  <tr>
+                    <th>Date</th>
+                    <th>Service</th>
+                    <th>Type</th>
+                    <th>Memo</th>
+                    <th>Amount</th>
+                    <th>Pre_balance</th>
+                    <th>Post_balance</th>
+                    <th>Status</th>
+=                  </tr>
                 </thead>
-                <tbody>
-                    <tr *ngFor="let item of this.res.data">
-                        <td>{{item.timestamp}}</td>
-                        <td>{{item.bank_name}}</td>
-                        <td>{{item.account_name}}</td>
-                        <td>{{item.account_number}}</td>
-                        <td>{{item.amount}}</td>
-                        <td  [ngClass]="{'text-green': item.transaction_type === 'Credit', 'text-red': item.transaction_type !== 'Credit'}">
-                            {{item.transaction_type}}
-                          </td>
-                        <td>{{item.notes}}</td>
-                          <td ngClass="bg-green">success</td>
-                          
-                                                      </tr>
+                <tbody *ngIf="this.res.status==true">
+                  <tr *ngFor="let item of res.data">
+                    <td>{{item.Date}}</td>
+                    <td>{{item.Service}}</td>
+                    <td>{{item.Type}}</td>
+                    <td>{{item.Memo}}</td>
+                    <td>{{item.Amount}}</td>
+                    <td>{{item.Pre_balance}}</td>
+                    <td>{{item.Post_balance}}</td>
+                    <td style="color: green; height: 10px;">{{item.Status}}</td>
+                   
+                  </tr>
                 </tbody>
-                <tbody *ngIf="this.res.data==''">
+                <tbody *ngIf="this.res.status==false">
                    <div class="alert alert-info text-center mt-4">No History</div>
                 </tbody>
-            </table>
+              </table>
         </div>
     </div>
 </div>

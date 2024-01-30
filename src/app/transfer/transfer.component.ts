@@ -13,7 +13,8 @@ export class TransferComponent {
   public res: any = {}
   public bankList:any=[]
   constructor(public fb: FormBuilder, public service: UsersService, public http: HttpClient) { }
-  public accountNumber: any = JSON.parse(localStorage['easyshareCurrentUserAccNo'])
+  public accountNumber: any = JSON.parse(localStorage['easyshareUser_id'])
+
   ngOnInit(){
  
     this.http.get<any>(`${this.service.backendURL}/banklist.php`).subscribe(result=>{
@@ -41,7 +42,7 @@ export class TransferComponent {
       currency: 'NGN',
     }).format(amount);
 
-    console.log(formattedAmount);
+    // console.log(formattedAmount);
     if (this.form.value.accountNumber==this.accountNumber) {
       Swal.fire({
         confirmButtonColor: "#3085d6",

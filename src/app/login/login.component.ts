@@ -28,7 +28,7 @@ export class LoginComponent {
           // console.log(response);
           this.res = response
           if (this.res.status==true) {
-            localStorage.setItem('easyshareUser_id',JSON.stringify(this.res.user_id))
+            localStorage.setItem('easyshareUser_id',JSON.stringify(this.res.accountnumber))
             this.route.navigate(['/dashboard'])
           }else{
             this.msg = this.res.message;

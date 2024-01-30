@@ -16,6 +16,7 @@ import { ChangepinComponent } from './changepin/changepin.component';
 import { CloudinaryModule } from '@cloudinary/ng';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ErrorpageComponent } from './errorpage/errorpage.component';
+import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ErrorpageComponent } from './errorpage/errorpage.component';
     HistoryComponent,
     ChangepinComponent,
     HomepageComponent,
-    ErrorpageComponent
+    ErrorpageComponent,
+    SubscriptionsComponent
   ],
   imports: [
     BrowserModule,

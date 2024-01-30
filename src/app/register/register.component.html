@@ -3,27 +3,26 @@
   <p class="text-center">Welcome to EasyShare Platform</p>
   <form [formGroup]="ngForm" (ngSubmit)="onSubmit()">
     <div class={{style}}>{{msg}}</div>
-      <div class="d-md-flex gap-2">
-        <div class="input_box" [ngClass]="{'has-error': ngForm.get('first_name')?.invalid && ngForm.get('first_name')?.dirty,
+    <div class="input_box" [ngClass]="{'has-error': ngForm.get('first_name')?.invalid && ngForm.get('first_name')?.dirty,
         'has-success': ngForm.get('first_name')?.valid && ngForm.get('first_name')?.dirty}">
-<input type="text" placeholder="First Name" formControlName="first_name" class="" required>
-<div class="icon"><i class="fas fa-user"></i></div>
-</div>
-<div class="text-danger" *ngIf="ngForm.get('first_name')?.invalid && ngForm.get('first_name')?.dirty">
-<span *ngIf="ngForm.get('first_name')?.hasError('required')">First Name is required</span>
-<span *ngIf="ngForm.get('first_name')?.hasError('minlength')">Minimum length required is 3</span>
-</div>
+      <input type="text" placeholder="First Name" formControlName="first_name" class="" required>
+      <div class="icon"><i class="fas fa-user"></i></div>
+    </div>
+    <div class="text-danger" *ngIf="ngForm.get('first_name')?.invalid && ngForm.get('first_name')?.dirty">
+      <span *ngIf="ngForm.get('first_name')?.hasError('required')">First Name is required</span>
+      <span *ngIf="ngForm.get('first_name')?.hasError('minlength')">Minimum length required is 3</span>
+    </div>
 
-<div class="input_box" [ngClass]="{'has-error': ngForm.get('middle_name')?.invalid && ngForm.get('middle_name')?.dirty,
+    <div class="input_box" [ngClass]="{'has-error': ngForm.get('middle_name')?.invalid && ngForm.get('middle_name')?.dirty,
 'has-success': ngForm.get('middle_name')?.valid && ngForm.get('middle_name')?.dirty}">
-<input type="text" placeholder="Middle Name" formControlName="middle_name">
-<div class="icon"><i class="fas fa-user"></i></div>
-</div>
-      </div>
-<div class="text-danger" *ngIf="ngForm.get('middle_name')?.invalid && ngForm.get('middle_name')?.dirty">
-<span *ngIf="ngForm.get('middle_name')?.hasError('minlength')">Minimum length required is 3</span>
-</div>
-    <div class="input_box" [ngClass]="{'has-error': ngForm.get('last_name')?.invalid && ngForm.get('last_name')?.dirty,
+      <input type="text" placeholder="Middle Name" formControlName="middle_name">
+      <div class="icon"><i class="fas fa-user"></i></div>
+    </div>
+    <div class="text-danger" *ngIf="ngForm.get('middle_name')?.invalid && ngForm.get('middle_name')?.dirty">
+      <span *ngIf="ngForm.get('middle_name')?.hasError('minlength')">Minimum length required is 3</span>
+    </div>
+    <div class="input_box"
+      [ngClass]="{'has-error': ngForm.get('last_name')?.invalid && ngForm.get('last_name')?.dirty,
                                         'has-success': ngForm.get('last_name')?.valid && ngForm.get('last_name')?.dirty}">
       <input type="text" placeholder="Last Name" formControlName="last_name" required>
       <div class="icon"><i class="fas fa-user"></i></div>
@@ -32,7 +31,7 @@
       <span *ngIf="ngForm.get('last_name')?.hasError('required')">Last Name is required</span>
       <span *ngIf="ngForm.get('last_name')?.hasError('minlength')">Minimum length required is 3</span>
     </div>
-  
+
     <div class="input_box" [ngClass]="{'has-error': ngForm.get('email')?.invalid && ngForm.get('email')?.dirty,
                                         'has-success': ngForm.get('email')?.valid && ngForm.get('email')?.dirty}">
       <input type="email" placeholder="Email address" formControlName="email" required>
@@ -42,8 +41,9 @@
       <span *ngIf="ngForm.get('email')?.hasError('required')">Email is required</span>
       <span *ngIf="ngForm.get('email')?.hasError('email')">Invalid email address</span>
     </div>
-  
-    <div class="input_box" [ngClass]="{'has-error': ngForm.get('phone_number')?.invalid && ngForm.get('phone_number')?.dirty,
+
+    <div class="input_box"
+      [ngClass]="{'has-error': ngForm.get('phone_number')?.invalid && ngForm.get('phone_number')?.dirty,
                                         'has-success': ngForm.get('phone_number')?.valid && ngForm.get('phone_number')?.dirty}">
       <input type="tel" placeholder="Phone Number" formControlName="phone_number" required>
       <div class="icon"><i class="fas fa-phone"></i></div>
@@ -51,15 +51,16 @@
     <div class="text-danger" *ngIf="ngForm.get('phone_number')?.invalid && ngForm.get('phone_number')?.dirty">
       <span *ngIf="ngForm.get('phone_number')?.hasError('required')">Phone Number is required</span>
     </div>
-     
 
 
-    <div class="input_box" [ngClass]="{'has-error': ngForm.get('national_id')?.invalid && ngForm.get('national_id')?.dirty,
+
+    <div class="input_box"
+      [ngClass]="{'has-error': ngForm.get('national_id')?.invalid && ngForm.get('national_id')?.dirty,
                                         'has-success': ngForm.get('national_id')?.valid && ngForm.get('national_id')?.dirty}">
       <input type="text" placeholder="National ID (optional)" formControlName="national_id">
       <div class="icon"><i class="fas fa-id-card"></i></div>
     </div>
-   
+
 
     <div class="input_box" [ngClass]="{'has-error': ngForm.get('country')?.invalid && ngForm.get('country')?.dirty,
                                         'has-success': ngForm.get('country')?.valid && ngForm.get('country')?.dirty}">
@@ -267,7 +268,8 @@
         <option value="Solomon Islands">Solomon Islands</option>
         <option value="Somalia">Somalia</option>
         <option value="South Africa">South Africa</option>
-        <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option>
+        <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands
+        </option>
         <option value="Spain">Spain</option>
         <option value="Sri Lanka">Sri Lanka</option>
         <option value="Sudan">Sudan</option>
@@ -316,7 +318,8 @@
       <span *ngIf="ngForm.get('country')?.hasError('required')">Country is required</span>
     </div>
 
-    <div class="input_box" [ngClass]="{'has-error': ngForm.get('date_of_birth')?.invalid && ngForm.get('date_of_birth')?.dirty,
+    <div class="input_box"
+      [ngClass]="{'has-error': ngForm.get('date_of_birth')?.invalid && ngForm.get('date_of_birth')?.dirty,
                                         'has-success': ngForm.get('date_of_birth')?.valid && ngForm.get('date_of_birth')?.dirty}">
       <input type="date" placeholder="Date of Birth" formControlName="date_of_birth" required>
       <div class="icon"><i class="fas fa-calendar"></i></div>
@@ -339,7 +342,8 @@
       <span *ngIf="ngForm.get('gender')?.hasError('required')">Gender is required</span>
     </div>
 
-    <div class="input_box" [ngClass]="{'has-error': ngForm.get('password')?.invalid && ngForm.get('password')?.dirty,
+    <div class="input_box"
+      [ngClass]="{'has-error': ngForm.get('password')?.invalid && ngForm.get('password')?.dirty,
                                         'has-success': ngForm.get('password')?.valid && ngForm.get('password')?.dirty}">
       <input type="password" placeholder="Set Password" formControlName="password" required>
       <div class="icon"><i class="fas fa-lock"></i></div>
@@ -349,8 +353,9 @@
       <span *ngIf="ngForm.get('password')?.hasError('minlength')">Password must be at least 6 characters</span>
 
     </div>
-  
-    <div class="input_box" [ngClass]="{'has-error': ngForm.get('confirm_password')?.invalid && ngForm.get('confirm_password')?.dirty,
+
+    <div class="input_box"
+      [ngClass]="{'has-error': ngForm.get('confirm_password')?.invalid && ngForm.get('confirm_password')?.dirty,
                                         'has-success': ngForm.get('confirm_password')?.valid && ngForm.get('confirm_password')?.dirty}">
       <input type="password" placeholder="Confirm Password" formControlName="confirm_password" required>
       <div class="icon"><i class="fas fa-lock"></i></div>
@@ -360,12 +365,12 @@
       <span *ngIf="ngForm.get('confirm_password')?.hasError('minlength')">Password must be at least 6 characters</span>
 
     </div>
-    
+
     <div class="option_div">
       <div class="check_box">
         <input type="checkbox" formControlName="agreement" checked>
         <span>I agree to the <a routerLink="">Terms of Service</a></span>
-      </div> 
+      </div>
     </div>
     <div class="text-danger" *ngIf="ngForm.get('agreement')?.invalid && ngForm.get('agreement')?.dirty">
       <small>Agreement is required</small>
@@ -377,7 +382,7 @@
       Already a member? <a routerLink="/login">Login now</a>
     </div>
   </form>
-  
-  
+
+
 
 </div>

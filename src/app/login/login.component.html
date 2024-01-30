@@ -1,6 +1,6 @@
-<div class="main_div m-auto col-md-4">
+<div class="main_div m-auto col-md-4 mt-5">
   <div class="title">Login</div>
-  <h5 class="text-center"><i>Welcome back</i></h5>
+    <h5 class="text-center"><i>Welcome back</i></h5>
   <form action="#" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
     <div class={{style}}>{{msg}}</div>
     <div class="input_box" [ngClass]="{'has-error': loginForm.get('email')?.invalid && loginForm.get('email')?.dirty,
